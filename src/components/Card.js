@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 
-const Card = () => {
+const Card = ({ card: { term, def } }) => {
   const [showBack, toggleShowBack] = useState(false);
 
   const handleFlip = () => toggleShowBack(!showBack);
 
   return (
-    <div className={showBack ? 'Card show-answer' : 'Card'}>
-      <span className="flip" onClick={handleFlip}>
-        <i className="fas fa-sync-alt"></i> Flip
-      </span>
+    <div
+      onClick={handleFlip}
+      className={showBack ? 'Card show-answer' : 'Card'}
+    >
       <div className="inner-card">
         <div className="inner-card-front">
-          <p>Front</p>
+          <span className="flip">
+            <i className="fas fa-sync-alt"></i> Flip
+          </span>
+          <p className="term">{term}</p>
         </div>
         <div className="inner-card-back">
-          <p>Back</p>
+          <span className="flip">
+            <i className="fas fa-sync-alt"></i> Flip
+          </span>
+          <p className="def">{def}</p>
         </div>
       </div>
     </div>

@@ -56,4 +56,28 @@ export default [
     def:
       'When a program incorrectly manages memroy allocations in such a way that memory which is no longer needed is not relased',
   },
+  {
+    id: 11,
+    term: 'Single Threaded',
+    def:
+      'Only one set of instructions is executed at a time. Has only one call satck that allows us to run code one at a time',
+  },
+  {
+    id: 12,
+    term: 'Web API',
+    def:
+      "Comes with the browsers and have their own JS engine implementation and runtime. Perform tasks asynchronously in the background and returns the data once it's done",
+  },
+  {
+    id: 13,
+    term: 'The Event Loop',
+    def:
+      "Continuously checks the call stack to see if there's any function that needs to run. While doing so, it adds any function call it finds to the call stacks and executes each one in order",
+  },
+  {
+    id: 14,
+    term: 'Node.js',
+    def:
+      'A cross-platform JS runtime environment that allows developers to build server-side and network application with JS',
+  },
 ];
