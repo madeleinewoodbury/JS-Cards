@@ -11,6 +11,7 @@ import {
   CLEAR_CURRENT,
   CARD_ERROR,
   TOGGLE_WRITE_MODE,
+  SET_MASTERED,
 } from '../types';
 
 const CardState = (props) => {
@@ -20,6 +21,8 @@ const CardState = (props) => {
     current: null,
     lists: terms.map((t) => t.title),
     writeMode: false,
+    showTerm: true,
+    mastered: JSON.parse(localStorage.getItem('mastered')) || [],
   };
 
   const [state, dispatch] = useReducer(CardReducer, initialState);
@@ -70,6 +73,16 @@ const CardState = (props) => {
 
   const toggleWriteMode = () => dispatch({ type: TOGGLE_WRITE_MODE });
 
+  const setMastered = (card) => {
+    const arr = [...state.mastered, card];
+    dispatch({ type: SET_MASTERED, payload: arr });
+  };
+
+  const removeMastered = (id) => {
+    const arr = state.mastered.filter((card) => card.id !== id);
+    dispatch({ type: SET_MASTERED, payload: arr });
+  };
+
   return (
     <CardContext.Provider
       value={{
@@ -78,12 +91,16 @@ const CardState = (props) => {
         current: state.current,
         lists: state.lists,
         writeMode: state.writeMode,
+        showTerm: true,
+        mastered: state.mastered,
         setList,
         setCards,
         setCurrent,
         clearCards,
         clearCurrent,
         toggleWriteMode,
+        setMastered,
+        removeMastered,
       }}
     >
       {props.children}

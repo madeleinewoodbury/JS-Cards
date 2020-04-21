@@ -6,6 +6,8 @@ import {
   CLEAR_CURRENT,
   CARD_ERROR,
   TOGGLE_WRITE_MODE,
+  SET_MASTERED,
+  UPDATE_MASTERED,
 } from '../types';
 
 export default (state, action) => {
@@ -40,6 +42,12 @@ export default (state, action) => {
       return {
         ...state,
         writeMode: !state.writeMode,
+      };
+    case SET_MASTERED:
+      localStorage.setItem('mastered', JSON.stringify(payload));
+      return {
+        ...state,
+        mastered: payload,
       };
     case CARD_ERROR:
       return state;

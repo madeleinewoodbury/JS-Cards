@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, Fragment } from 'react';
 import CardContext from '../context/card/cardContext';
 import terms from '../terms';
 import Navigation from './Navigation';
@@ -15,6 +15,10 @@ const Container = () => {
     list,
     writeMode,
     toggleWriteMode,
+    showTerm,
+    setMastered,
+    removeMastered,
+    mastered,
   } = cardContext;
 
   useEffect(() => {
@@ -44,6 +48,33 @@ const Container = () => {
     }
   };
 
+  const resetCard = () => {
+    setText('');
+    setAnswer('');
+    showTerm ? toggleShowBack(false) : toggleShowBack(true);
+  };
+
+  const isMastered = () => {
+    if (current) {
+      if (mastered.find((card) => card.id === current.id)) {
+        return (
+          <button
+            className="btn btn-success"
+            onClick={(e) => removeMastered(current.id)}
+          >
+            <i className="fas fa-check"></i> Mastered
+          </button>
+        );
+      } else {
+        return (
+          <button className="btn" onClick={(e) => setMastered(current)}>
+            <i className="fas fa-times"></i> Mastered
+          </button>
+        );
+      }
+    }
+  };
+
   return (
     <div className="Container">
       {current && (
@@ -55,13 +86,15 @@ const Container = () => {
           className={writeMode ? 'btn btn-off' : 'btn btn-on'}
           onClick={(e) => toggleWriteMode()}
         >
-          <i class="fas fa-pencil-alt"></i> {writeMode ? 'OFF' : 'ON'}
+          <i className="fas fa-pencil-alt"></i> {writeMode ? 'OFF' : 'ON'}
         </button>
         <Navigation
           cardIndex={cards.indexOf(current)}
           cardLength={cards.length}
           setCurrent={setCurrent}
+          resetCard={resetCard}
         />
+        {isMastered()}
       </div>
     </div>
   );
