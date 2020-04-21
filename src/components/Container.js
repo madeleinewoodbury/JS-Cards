@@ -1,7 +1,6 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import CardContext from '../context/card/cardContext';
 import terms from '../terms';
-import ListForm from './ListForm';
 import Card from './Card';
 
 const Container = () => {
@@ -16,7 +15,6 @@ const Container = () => {
 
   return (
     <div className="Container">
-      {/* <ListForm /> */}
       {current && <Card card={current} />}
       <div className="navigation">
         <button
