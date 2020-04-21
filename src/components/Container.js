@@ -7,7 +7,15 @@ import CardForm from './CardForm';
 
 const Container = () => {
   const cardContext = useContext(CardContext);
-  const { cards, setCards, setCurrent, current, list, writeMode } = cardContext;
+  const {
+    cards,
+    setCards,
+    setCurrent,
+    current,
+    list,
+    writeMode,
+    toggleWriteMode,
+  } = cardContext;
 
   useEffect(() => {
     setCards(terms.filter((t) => t.title === list));
@@ -42,11 +50,19 @@ const Container = () => {
         <Card card={current} showBack={showBack} handleFlip={handleFlip} />
       )}
       {writeMode && <CardForm text={text} setText={setText} answer={answer} />}
-      <Navigation
-        cardIndex={cards.indexOf(current)}
-        cardLength={cards.length}
-        setCurrent={setCurrent}
-      />
+      <div className="actions">
+        <button
+          className={writeMode ? 'btn btn-off' : 'btn btn-on'}
+          onClick={(e) => toggleWriteMode()}
+        >
+          <i class="fas fa-pencil-alt"></i> {writeMode ? 'OFF' : 'ON'}
+        </button>
+        <Navigation
+          cardIndex={cards.indexOf(current)}
+          cardLength={cards.length}
+          setCurrent={setCurrent}
+        />
+      </div>
     </div>
   );
 };

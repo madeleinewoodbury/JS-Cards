@@ -1,16 +1,21 @@
-import React, { useContext } from 'react';
-import CardContext from '../context/card/cardContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import ListForm from './ListForm';
 
 const Navbar = () => {
-  const cardContext = useContext(CardContext);
-  const { toggleWriteMode } = cardContext;
-
   return (
     <nav className="Navbar">
-      <h2>JS Cards</h2>
-      <button onClick={(e) => toggleWriteMode()}>Write Mode</button>
-      <ListForm />
+      <Link to="/">
+        <h2>JS Cards</h2>
+      </Link>
+      <ul>
+        <li>
+          <Link to="/mastered"> Terms Mastered</Link>
+        </li>
+        <li>
+          <ListForm />
+        </li>
+      </ul>
     </nav>
   );
 };
