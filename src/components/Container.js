@@ -16,7 +16,7 @@ const Container = () => {
 
   return (
     <div className="Container">
-      <ListForm />
+      {/* <ListForm /> */}
       {current && <Card card={current} />}
       <div className="navigation">
         <button
