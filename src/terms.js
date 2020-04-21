@@ -1,6 +1,6 @@
 export default [
   {
-    title: 'Foundations',
+    title: 'Foundations I',
     cards: [
       {
         id: 1,
@@ -86,17 +86,54 @@ export default [
     ],
   },
   {
-    title: 'Other',
+    title: 'Foundations II',
     cards: [
       {
         id: 1,
-        term: 'Test 1',
-        def: 'Defenition Test 1',
+        term: 'Execution Context',
+        def:
+          'An abstract concept of an environment where the JS code is evaluated and executed',
       },
       {
         id: 2,
-        term: 'Test 2',
-        def: 'Defenition Test 2',
+        term: 'Global Execution Context',
+        def:
+          'The default or base execution context. Creates the global object which the value of this is set to',
+      },
+      {
+        id: 3,
+        term: 'Functional Execution Context',
+        def: 'Created every time a function is invoked or called',
+      },
+      {
+        id: 4,
+        term: 'Lexical Environment',
+        def:
+          'Simply where you write something, which then determines what you have access to',
+      },
+      {
+        id: 5,
+        term: 'Hoisting',
+        def:
+          'The JS engine allocates memory for the variables (var keyword) and function declarations that it sees in your code during the creation phase',
+      },
+      {
+        id: 6,
+        term: 'Function Expression',
+        def:
+          'The function keyword can be used to defines a function inside an expresstion. Not hoisted, can be used as an IIFE',
+      },
+      {
+        id: 7,
+        term: 'Function Declaration',
+        def:
+          'Defines a function with the specified parameters. They are hoisted, can be used before you declare it',
+      },
+      {
+        id: 8,
+        term: 'arguments',
+        def:
+          'An array -like object accessible inside functions that contains the values of arguments passed to that function',
       },
     ],
   },
