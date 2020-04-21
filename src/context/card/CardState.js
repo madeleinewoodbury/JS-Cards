@@ -10,6 +10,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   CARD_ERROR,
+  TOGGLE_WRITE_MODE,
 } from '../types';
 
 const CardState = (props) => {
@@ -18,6 +19,7 @@ const CardState = (props) => {
     cards: [],
     current: null,
     lists: terms.map((t) => t.title),
+    writeMode: false,
   };
 
   const [state, dispatch] = useReducer(CardReducer, initialState);
@@ -66,6 +68,8 @@ const CardState = (props) => {
 
   const clearCurrent = () => dispatch({ type: CLEAR_CURRENT });
 
+  const toggleWriteMode = () => dispatch({ type: TOGGLE_WRITE_MODE });
+
   return (
     <CardContext.Provider
       value={{
@@ -73,11 +77,13 @@ const CardState = (props) => {
         cards: state.cards,
         current: state.current,
         lists: state.lists,
+        writeMode: state.writeMode,
         setList,
         setCards,
         setCurrent,
         clearCards,
         clearCurrent,
+        toggleWriteMode,
       }}
     >
       {props.children}

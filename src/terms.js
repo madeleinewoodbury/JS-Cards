@@ -135,6 +135,30 @@ export default [
         def:
           'An array -like object accessible inside functions that contains the values of arguments passed to that function',
       },
+      {
+        id: 9,
+        term: 'Variable Environment',
+        def:
+          'Each execution context has its own variable environment where variables can be accessed within that environment',
+      },
+      {
+        id: 10,
+        term: 'Scope Chain',
+        def:
+          'The order in which functions are written in the code, where they are lexically in our code',
+      },
+      {
+        id: 11,
+        term: '"Leaking" into global-scope',
+        def:
+          'Occurs when something used in local-scope is unintentionally made available to the global-scope. Prevent with strict mode',
+      },
+      {
+        id: 12,
+        term: '"use strict"',
+        def:
+          'Introduces in ECMAScript version 5. The purpose is to indicate that the code should be executed in “strict mode”. You cannot for example, use undeclared variables',
+      },
     ],
   },
 ];

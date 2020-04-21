@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Card = ({ card: { term, def } }) => {
-  const [showBack, toggleShowBack] = useState(false);
-
-  const handleFlip = () => toggleShowBack(!showBack);
-
+const Card = ({ card: { term, def }, showBack, handleFlip }) => {
   return (
     <div
       onClick={handleFlip}

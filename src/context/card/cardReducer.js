@@ -5,6 +5,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   CARD_ERROR,
+  TOGGLE_WRITE_MODE,
 } from '../types';
 
 export default (state, action) => {
@@ -34,6 +35,11 @@ export default (state, action) => {
       return {
         ...state,
         current: null,
+      };
+    case TOGGLE_WRITE_MODE:
+      return {
+        ...state,
+        writeMode: !state.writeMode,
       };
     case CARD_ERROR:
       return state;
