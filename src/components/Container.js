@@ -30,7 +30,9 @@ const Container = () => {
           <i className="fas fa-arrow-left"></i>
         </button>
 
-        <p id="current"></p>
+        <p id="current">
+          {cards.indexOf(current) + 1} / {cards.length}
+        </p>
 
         <button
           className="nav-button"

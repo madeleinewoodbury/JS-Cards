@@ -46,6 +46,7 @@ body {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
+  cursor: 3;
 }
 .inner-card-front,
 .inner-card-back {
@@ -95,7 +96,7 @@ body {
 .navigation .nav-button {
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.53rem;
   color: black;
 }
 
@@ -111,4 +112,5 @@ select {
   font-size: 1.2rem;
   border: 1px solid #ccc;
   margin-bottom: 1rem;
+  outline: none;
 }

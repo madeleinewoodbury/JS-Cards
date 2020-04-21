@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import CardContext from './cardContext';
 import CardReducer from './cardReducer';
 import terms from '../../terms';
+import shuffle from '../../utils/shuffle';
 import {
   SET_LIST,
   SET_CARDS,
@@ -34,11 +35,12 @@ const CardState = (props) => {
   };
 
   const setCards = (data) => {
+    let cards = shuffle(data[0].cards);
     clearCurrent();
     try {
       dispatch({
         type: SET_CARDS,
-        payload: data[0].cards,
+        payload: cards,
       });
 
       setCurrent(0);
