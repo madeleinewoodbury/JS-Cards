@@ -174,14 +174,10 @@ select {
 
   .Card {
     width: 300px;
-    height: 200px;
+    height: 300px;
   }
 
   .inner-card .term {
     font-size: 1.8rem;
-  }
-
-  .inner-card .def {
-    font-size: 1rem;
   }
 }
