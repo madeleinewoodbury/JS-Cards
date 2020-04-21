@@ -1,4 +1,5 @@
 import {
+  SET_LIST,
   SET_CARDS,
   CLEAR_CARDS,
   SET_CURRENT,
@@ -9,6 +10,11 @@ import {
 export default (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case SET_LIST:
+      return {
+        ...state,
+        list: payload,
+      };
     case SET_CARDS:
       return {
         ...state,
@@ -17,7 +23,7 @@ export default (state, action) => {
     case SET_CURRENT:
       return {
         ...state,
-        current: state.cards.find((card) => card.id === payload),
+        current: state.cards.find((card, index) => index === payload),
       };
     case CLEAR_CARDS:
       return {

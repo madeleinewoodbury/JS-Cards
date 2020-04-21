@@ -1,7 +1,9 @@
 import React, { useReducer } from 'react';
 import CardContext from './cardContext';
 import CardReducer from './cardReducer';
+import terms from '../../terms';
 import {
+  SET_LIST,
   SET_CARDS,
   CLEAR_CARDS,
   SET_CURRENT,
@@ -11,32 +13,46 @@ import {
 
 const CardState = (props) => {
   const initialState = {
+    list: terms[0].title,
     cards: [],
     current: null,
+    lists: terms.map((t) => t.title),
   };
 
   const [state, dispatch] = useReducer(CardReducer, initialState);
 
-  const setCards = (cards) => {
-    clearCurrent();
+  const setList = (listName) => {
     try {
       dispatch({
-        type: SET_CARDS,
-        payload: cards,
+        type: SET_LIST,
+        payload: listName,
       });
-
-      setCurrent(1);
     } catch (err) {
       console.error(err);
       dispatch({ type: CARD_ERROR });
     }
   };
 
-  const setCurrent = (id) => {
+  const setCards = (data) => {
+    clearCurrent();
+    try {
+      dispatch({
+        type: SET_CARDS,
+        payload: data[0].cards,
+      });
+
+      setCurrent(0);
+    } catch (err) {
+      console.error(err);
+      dispatch({ type: CARD_ERROR });
+    }
+  };
+
+  const setCurrent = (index) => {
     try {
       dispatch({
         type: SET_CURRENT,
-        payload: id,
+        payload: index,
       });
     } catch (err) {
       console.error(err);
@@ -51,8 +67,11 @@ const CardState = (props) => {
   return (
     <CardContext.Provider
       value={{
+        list: state.list,
         cards: state.cards,
         current: state.current,
+        lists: state.lists,
+        setList,
         setCards,
         setCurrent,
         clearCards,

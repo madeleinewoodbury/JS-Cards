@@ -102,3 +102,13 @@ body {
 .navigation p {
   margin: 0 25px;
 }
+
+/* Form */
+select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
