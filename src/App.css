@@ -36,6 +36,14 @@ li {
   list-style: none;
   margin: 0 0.5rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+li .fas {
+  margin: 0 1rem 0 0.5rem;
 }
 
 a {
@@ -189,6 +197,11 @@ select {
   margin-top: 15px;
 }
 
+.btn-success {
+  background-color: rgb(0, 163, 0);
+  color: white;
+}
+
 .actions .btn:first-of-type {
   position: absolute;
   top: 0;
@@ -212,6 +225,11 @@ select {
 }
 
 @media screen and (max-width: 700px) {
+  .Navbar {
+    flex-direction: column;
+    height: 15vh;
+    justify-content: space-around;
+  }
   .Card,
   .CardForm,
   .Container .actions {
@@ -229,12 +247,22 @@ select {
   .inner-card .def {
     font-size: 1.3rem;
   }
+
+  li .fas {
+    margin: 0 0.5rem 0 0.25rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .Container {
     justify-content: start;
     margin-top: 3rem;
+  }
+
+  select {
+    width: 150px;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
   }
 
   .Card,
@@ -254,15 +282,13 @@ select {
   .inner-card .def {
     font-size: 1.1rem;
   }
+
+  .hide-sm {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 400px) {
-  select {
-    width: 150px;
-    padding: 0.5rem 0.5rem;
-    font-size: 1rem;
-  }
-
   .Card,
   .CardForm,
   .Container .actions {

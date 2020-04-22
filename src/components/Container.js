@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, Fragment } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import CardContext from '../context/card/cardContext';
 import terms from '../terms';
 import Navigation from './Navigation';
@@ -19,13 +19,14 @@ const Container = () => {
     setMastered,
     removeMastered,
     mastered,
+    showMastered,
   } = cardContext;
 
   useEffect(() => {
     setCards(terms.filter((t) => t.title === list));
 
     // eslint-disable-next-line
-  }, [list]);
+  }, [list, showMastered]);
 
   const [showBack, toggleShowBack] = useState(false);
   const [answer, setAnswer] = useState('');

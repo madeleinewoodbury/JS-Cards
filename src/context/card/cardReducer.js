@@ -7,7 +7,7 @@ import {
   CARD_ERROR,
   TOGGLE_WRITE_MODE,
   SET_MASTERED,
-  UPDATE_MASTERED,
+  TOGGLE_SHOW_MASTERED,
 } from '../types';
 
 export default (state, action) => {
@@ -48,6 +48,11 @@ export default (state, action) => {
       return {
         ...state,
         mastered: payload,
+      };
+    case TOGGLE_SHOW_MASTERED:
+      return {
+        ...state,
+        showMastered: !state.showMastered,
       };
     case CARD_ERROR:
       return state;
